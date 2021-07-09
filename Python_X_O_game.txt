@@ -1,4 +1,4 @@
-print("*" * 10, " Игра Крестики-нолики для двух игроков ", "*" * 10)
+print("*" * 10, " РРіСЂР° РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРё РґР»СЏ РґРІСѓС… РёРіСЂРѕРєРѕРІ ", "*" * 10)
 
 board = list(range(1,10))
 
@@ -11,20 +11,20 @@ def draw_board(board):
 def take_input(player_token):
    valid = False
  .  while not valid:
-      player_answer = input("Куда поставим " + player_token+"? ")
+      player_answer = input("РљСѓРґР° РїРѕСЃС‚Р°РІРёРј " + player_token+"? ")
       try:
          player_answer = int(player_answer)
       except:
-         print("Некорректный ввод. Вы уверены, что ввели число?")
+         print("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ. Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ РІРІРµР»Рё С‡РёСЃР»Рѕ?")
          continue
       if player_answer >= 1 and player_answer <= 9:
          if(str(board[player_answer-1]) not in "XO"):
             board[player_answer-1] = player_token
             valid = True
          else:
-            print("Эта клетка уже занята!")
+            print("Р­С‚Р° РєР»РµС‚РєР° СѓР¶Рµ Р·Р°РЅСЏС‚Р°!")
       else:
-        print("Некорректный ввод. Введите число от 1 до 9.")
+        print("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ. Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РѕС‚ 1 РґРѕ 9.")
 
 def check_win(board):
    win_coord = ((0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6))
@@ -46,55 +46,55 @@ def main(board):
         if counter > 4:
            tmp = check_win(board)
            if tmp:
-              print(tmp, "выиграл!")
+              print(tmp, "РІС‹РёРіСЂР°Р»!")
               win = True
               break
         if counter == 9:
-            print("Ничья!")
+            print("РќРёС‡СЊСЏ!")
             break
     draw_board(board)
 main(board)
 
-input("Нажмите Enter для выхода!")
+input("РќР°Р¶РјРёС‚Рµ Enter РґР»СЏ РІС‹С…РѕРґР°!")
 
 
-# Простейшее и наименее совершенное решение игры в крестики-нолики
+# РџСЂРѕСЃС‚РµР№С€РµРµ Рё РЅР°РёРјРµРЅРµРµ СЃРѕРІРµСЂС€РµРЅРЅРѕРµ СЂРµС€РµРЅРёРµ РёРіСЂС‹ РІ РєСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРё
 
 game_matrix = [[None, None, None], [None, None, None], [None, None, None]]
 game_is_on = True
-в то время как game_is_on:
- # Крестик - латинская буква X, нолик - латинская буква O 
- # Ходы принимаются в формате [0][0] = "X" или [2][1] = "О"
- move = вход()
+РІ С‚Рѕ РІСЂРµРјСЏ РєР°Рє game_is_on:
+ # РљСЂРµСЃС‚РёРє - Р»Р°С‚РёРЅСЃРєР°СЏ Р±СѓРєРІР° X, РЅРѕР»РёРє - Р»Р°С‚РёРЅСЃРєР°СЏ Р±СѓРєРІР° O 
+ # РҐРѕРґС‹ РїСЂРёРЅРёРјР°СЋС‚СЃСЏ РІ С„РѕСЂРјР°С‚Рµ [0][0] = "X" РёР»Рё [2][1] = "Рћ"
+ move = РІС…РѕРґ()
  exec("game_matrix" + move)
- для строки в game_matrix:
- печать(строка)
+ РґР»СЏ СЃС‚СЂРѕРєРё РІ game_matrix:
+ РїРµС‡Р°С‚СЊ(СЃС‚СЂРѕРєР°)
     
  reference_matrix = [
  game_matrix[0],
  game_matrix[1],
  game_matrix[2],
- [i[0] для i в game_matrix],
- [i[1] для i в game_matrix],
- [i[2] для i в game_matrix],
+ [i[0] РґР»СЏ i РІ game_matrix],
+ [i[1] РґР»СЏ i РІ game_matrix],
+ [i[2] РґР»СЏ i РІ game_matrix],
  [game_matrix[0][0], game_matrix[1][1], game_matrix[2][2]],
  [game_matrix[0][2], game_matrix[1][1], game_matrix[2][0]]
     ]
- для элемента в reference_matrix:
- результат = список(набор(элемент))
- если len(result) == 1 и result[0] != None:
- печать("Игра окончена!")
+ РґР»СЏ СЌР»РµРјРµРЅС‚Р° РІ reference_matrix:
+ СЂРµР·СѓР»СЊС‚Р°С‚ = СЃРїРёСЃРѕРє(РЅР°Р±РѕСЂ(СЌР»РµРјРµРЅС‚))
+ РµСЃР»Рё len(result) == 1 Рё result[0] != None:
+ РїРµС‡Р°С‚СЊ("РРіСЂР° РѕРєРѕРЅС‡РµРЅР°!")
  game_is_on = False
- перерыв
+ РїРµСЂРµСЂС‹РІ
 
 
-#крестики-нолики на поле 3х3
+#РєСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРё РЅР° РїРѕР»Рµ 3С…3
 
 def instrukciya():
     print('''
-Привет! Это игра "Крестики-нолики".
-Чтобы сделать ход, введи номер клетки,
-куда хочешь поставить свой символ:
+РџСЂРёРІРµС‚! Р­С‚Рѕ РёРіСЂР° "РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРё".
+Р§С‚РѕР±С‹ СЃРґРµР»Р°С‚СЊ С…РѕРґ, РІРІРµРґРё РЅРѕРјРµСЂ РєР»РµС‚РєРё,
+РєСѓРґР° С…РѕС‡РµС€СЊ РїРѕСЃС‚Р°РІРёС‚СЊ СЃРІРѕР№ СЃРёРјРІРѕР»:
 
 0 | 1 | 2
 ---------
@@ -107,21 +107,21 @@ def instrukciya():
 
 def nachalo(vopros):
     otvet=None
-    while otvet not in ('да','нет'):
+    while otvet not in ('РґР°','РЅРµС‚'):
         otvet=input(question).lower()
     return otvet
 
 def fishki():
-    perviy_hod=nachalo("Вы хотите быть первым, кто сделает ход \
-(играть крестиками)?  ")
-    if perviy_hod=='да':
-        print('Окей, ты играешь крестиками!')
-        human=Х
+    perviy_hod=nachalo("Р’С‹ С…РѕС‚РёС‚Рµ Р±С‹С‚СЊ РїРµСЂРІС‹Рј, РєС‚Рѕ СЃРґРµР»Р°РµС‚ С…РѕРґ \
+(РёРіСЂР°С‚СЊ РєСЂРµСЃС‚РёРєР°РјРё)?  ")
+    if perviy_hod=='РґР°':
+        print('РћРєРµР№, С‚С‹ РёРіСЂР°РµС€СЊ РєСЂРµСЃС‚РёРєР°РјРё!')
+        human=РҐ
         comp=O
     else:
-        print('ОК, я делаю первый крестиками')
+        print('РћРљ, СЏ РґРµР»Р°СЋ РїРµСЂРІС‹Р№ РєСЂРµСЃС‚РёРєР°РјРё')
         human=O
-        comp=Х
+        comp=РҐ
     return human, comp
 
 X='X'
@@ -174,23 +174,23 @@ def human_hod(doska,human):
     dostupnie=dostupnie_hodi(doska)
     hod=None
     while hod not in dostupnie:
-        hod=hod('Твоя очередь ходить. Напиши номер поля 0-8: ',\
+        hod=hod('РўРІРѕСЏ РѕС‡РµСЂРµРґСЊ С…РѕРґРёС‚СЊ. РќР°РїРёС€Рё РЅРѕРјРµСЂ РїРѕР»СЏ 0-8: ',\
  0,RAZMER_DOSKI)
         if hod not in dostupnie:
-            print('Поле занято. Напиши другой номер: ')
-    print('Супер!')
+            print('РџРѕР»Рµ Р·Р°РЅСЏС‚Рѕ. РќР°РїРёС€Рё РґСЂСѓРіРѕР№ РЅРѕРјРµСЂ: ')
+    print('РЎСѓРїРµСЂ!')
     return hod
 
 def comp_hod(doska,comp,human):
     doska=doska[:]
 
 BEST_HODI=(4,0,2,6,8,1,3,5,7)
-В итоге вся функция ходов компьютера получается такой:
+Р’ РёС‚РѕРіРµ РІСЃСЏ С„СѓРЅРєС†РёСЏ С…РѕРґРѕРІ РєРѕРјРїСЊСЋС‚РµСЂР° РїРѕР»СѓС‡Р°РµС‚СЃСЏ С‚Р°РєРѕР№:
 
 def comp_hod(doska,comp,human):
     doska=doska[:]
     BEST_HODI=(4,0,2,6,8,1,3,5,7)
-    print('Мой ход: ')
+    print('РњРѕР№ С…РѕРґ: ')
     for i in dostupnie_hodi(doska):
         doska[i]=comp
         if winner(doska)==comp:
@@ -215,13 +215,13 @@ def next_hod(hod):
 
 def pozdrav_pobeditela(pobeditel,comp,human):
     if pobeditel!=NICHYA:
-        print('Собрана линия ', pobeditel)
+        print('РЎРѕР±СЂР°РЅР° Р»РёРЅРёСЏ ', pobeditel)
     else:
         print(NICHYA)
     if pobeditel==comp:
-        print('/n Компьютер выиграл!')
+        print('/n РљРѕРјРїСЊСЋС‚РµСЂ РІС‹РёРіСЂР°Р»!')
     elif pobeditel==human:
-        print('Ты победил!')
+        print('РўС‹ РїРѕР±РµРґРёР»!')
     elif pobeditel==NICHYA:
         print(NICHYA)
 
@@ -244,21 +244,21 @@ def main():
     pozdrav_pobeditela(pobeditel,comp,human)
 
 main()
-input('\n Нажми Entr, чтобы выйти')
+input('\n РќР°Р¶РјРё Entr, С‡С‚РѕР±С‹ РІС‹Р№С‚Рё')
 
-Исправление ошибок в игре «Крестики-нолики».
+РСЃРїСЂР°РІР»РµРЅРёРµ РѕС€РёР±РѕРє РІ РёРіСЂРµ В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ».
 
 X='X'
 O='0'
 RAZMER_DOSKI=9
 HODI=' '
-NICHYA='Ничья'
+NICHYA='РќРёС‡СЊСЏ'
 
 def instrukciya():
     print('''
-Привет! Это игра "Крестики-нолики".
-Чтобы сделать ход, введи номер клетки,
-куда хочешь поставить свой символ:
+РџСЂРёРІРµС‚! Р­С‚Рѕ РёРіСЂР° "РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРё".
+Р§С‚РѕР±С‹ СЃРґРµР»Р°С‚СЊ С…РѕРґ, РІРІРµРґРё РЅРѕРјРµСЂ РєР»РµС‚РєРё,
+РєСѓРґР° С…РѕС‡РµС€СЊ РїРѕСЃС‚Р°РІРёС‚СЊ СЃРІРѕР№ СЃРёРјРІРѕР»:
 
 0 | 1 | 2
 ---------
@@ -270,19 +270,19 @@ def instrukciya():
 ''')
 def nachalo(vopros):
     otvet=None
-    while otvet not in ('да','нет'):
+    while otvet not in ('РґР°','РЅРµС‚'):
         otvet=input(vopros).lower()
     return otvet
 
 def fishki():
-    perviy_hod=nachalo("Вы хотите быть первым, кто сделает ход \
-(играть крестиками)?  ")
-    if perviy_hod=='да':
-        print('Окей, ты играешь крестиками!')
+    perviy_hod=nachalo("Р’С‹ С…РѕС‚РёС‚Рµ Р±С‹С‚СЊ РїРµСЂРІС‹Рј, РєС‚Рѕ СЃРґРµР»Р°РµС‚ С…РѕРґ \
+(РёРіСЂР°С‚СЊ РєСЂРµСЃС‚РёРєР°РјРё)?  ")
+    if perviy_hod=='РґР°':
+        print('РћРєРµР№, С‚С‹ РёРіСЂР°РµС€СЊ РєСЂРµСЃС‚РёРєР°РјРё!')
         human=X
         comp=O
     else:
-        print('ОК, я делаю первый ход крестиками')
+        print('РћРљ, СЏ РґРµР»Р°СЋ РїРµСЂРІС‹Р№ С…РѕРґ РєСЂРµСЃС‚РёРєР°РјРё')
         human=O
         comp=X
     return comp, human
@@ -290,7 +290,7 @@ def fishki():
 def hod_number(low,high):
     otvet=None
     while otvet not in range(low,high):
-        otvet=int(input("Делай свой ход - напиши номер поля (0-8): "))
+        otvet=int(input("Р”РµР»Р°Р№ СЃРІРѕР№ С…РѕРґ - РЅР°РїРёС€Рё РЅРѕРјРµСЂ РїРѕР»СЏ (0-8): "))
     return otvet
 
 
@@ -337,13 +337,13 @@ def human_hod(doska,human):
     while hod not in dostupnie:
         hod=hod_number(0,RAZMER_DOSKI)
         if hod not in dostupnie:
-            print('Поле занято. Напиши другой номер: ')
-    print('Супер!')
+            print('РџРѕР»Рµ Р·Р°РЅСЏС‚Рѕ. РќР°РїРёС€Рё РґСЂСѓРіРѕР№ РЅРѕРјРµСЂ: ')
+    print('РЎСѓРїРµСЂ!')
     return hod
 def comp_hod(doska,comp,human):
     doska=doska[:]
     BEST_HODI=(4,0,2,6,8,1,3,5,7)
-    print('Мой ход: ')
+    print('РњРѕР№ С…РѕРґ: ')
     for i in dostupnie_hodi(doska):
         doska[i]=comp
         if winner(doska)==comp:
@@ -366,13 +366,13 @@ def next_ochered(ochered):
         return X
 def pozdrav_pobeditela(pobeditel,comp,human):
     if pobeditel!=NICHYA:
-        print('Собрана линия ', pobeditel)
+        print('РЎРѕР±СЂР°РЅР° Р»РёРЅРёСЏ ', pobeditel)
     else:
         print(NICHYA)
     if pobeditel==comp:
-        print('Компьютер выиграл!')
+        print('РљРѕРјРїСЊСЋС‚РµСЂ РІС‹РёРіСЂР°Р»!')
     elif pobeditel==human:
-        print('Ты победил!')
+        print('РўС‹ РїРѕР±РµРґРёР»!')
     elif pobeditel==NICHYA:
         print(NICHYA)
 def main():
@@ -394,4 +394,4 @@ def main():
     pozdrav_pobeditela(pobeditel,comp,human)
 
 main()
-input('\n Нажми Entr, чтобы выйти') 
+input('\n РќР°Р¶РјРё Entr, С‡С‚РѕР±С‹ РІС‹Р№С‚Рё') 
